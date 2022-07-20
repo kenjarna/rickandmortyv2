@@ -12,17 +12,24 @@ function App() {
       <BrowserRouter>
         <header>
           <Link to="/">
-            <p>
+            <h3>
               {'<'}
               Rick and Morty Baby
               {'>'}
-            </p>
+            </h3>
           </Link>
         </header>
-        <Routes>
-          <Route exact path="/" element={<CharacterList />} />
-          <Route path="/:id" element={<CharacterDetail />} />
-        </Routes>
+        <div className="content">
+          <Routes>
+            <Route exact path="/" element={<CharacterList />} />
+            <Route path="/:id" element={<CharacterDetail />} />
+          </Routes>
+        </div>
+        <footer>
+          <p>
+            Developed by: Kenny Jarnagin
+          </p>
+        </footer>
       </BrowserRouter>
     </div>
   );

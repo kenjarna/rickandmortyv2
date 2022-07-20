@@ -7,7 +7,7 @@ function Character({ character }) {
   const navigate = useNavigate();
   return (
     <div>
-      <img src={character.image} alt={character.name} onClick={() => navigate(`/${character.id}`, { replace: true })} />
+      <img src={character.image} alt={character.name} onClick={() => navigate(`/${character.id}`)} onKeyDown={() => navigate(`/${character.id}`)} />
     </div>
   );
 }
