@@ -12,7 +12,11 @@ function App() {
       <BrowserRouter>
         <header>
           <Link to="/">
-            <p> Header - Maybe do something cool later</p>
+            <p>
+              {'<'}
+              Rick and Morty Baby
+              {'>'}
+            </p>
           </Link>
         </header>
         <Routes>

@@ -8,7 +8,6 @@ function Character({ character }) {
   return (
     <div>
       <img src={character.image} alt={character.name} onClick={() => navigate(`/${character.id}`, { replace: true })} />
-      {character.name}
     </div>
   );
 }
