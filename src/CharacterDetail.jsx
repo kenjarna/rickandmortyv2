@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { CharacterPoster } from './Character';
 
 const CHARACTER_IMG_URL = 'https://rickandmortyapi.com/api/character/avatar/';
 const CHARACTER_DETAILS = 'https://rickandmortyapi.com/api/character/';
@@ -22,14 +24,18 @@ function CharacterDetail() {
   }, [fetchCharacterDetails, id]);
 
   return (
-    <div>
-      <img src={`${CHARACTER_IMG_URL}${character.id}.jpeg`} alt={`${character.name}`} />
-      <h3>{character.name}</h3>
-      <p>
-        This character is from {character?.origin?.name} and was last seen on {character?.location?.name}.<br />
-        They are a {character?.gender?.toLowerCase()} {character?.species?.toLowerCase()} and are currently considered {character?.status?.toLowerCase()}.
-      </p>
-    </div>
+    <CharacterWrapper backdrop={`${CHARACTER_IMG_URL}${character.id}.jpeg`}>
+      <CharacterInfo>
+        <CharacterPoster src={`${CHARACTER_IMG_URL}${character.id}.jpeg`} alt={`${character.name}`} />
+        <div>
+          <h3>{character.name}</h3>
+          <p>
+            This character is from {character?.origin?.name} and was last seen on {character?.location?.name}.<br />
+            They are a {character?.gender?.toLowerCase()} {character?.species?.toLowerCase()} and are currently considered {character?.status?.toLowerCase()}.
+          </p>
+        </div>
+      </CharacterInfo>
+    </CharacterWrapper>
   );
 }
 
@@ -51,3 +57,24 @@ CharacterDetail.propTypes = {
 };
 
 export default CharacterDetail;
+
+const CharacterWrapper = styled.div`
+  position: relative;
+  padding-top: 50vh;
+  background: url(${(props) => props.backdrop}) no-repeat;
+  background-size: cover;
+`;
+
+const CharacterInfo = styled.div`
+  background: white;
+  text-align: left;
+  padding: 2rem 10%;
+  display: flex;
+  > div {
+    margin-left: 20px;
+  }
+  img {
+    position: relative;
+    top: -5rem;
+  }
+`;

@@ -2,12 +2,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 function Character({ character }) {
   const navigate = useNavigate();
   return (
     <div>
-      <img src={character.image} alt={character.name} onClick={() => navigate(`/${character.id}`)} onKeyDown={() => navigate(`/${character.id}`)} />
+      <CharacterPoster src={character.image} alt={character.name} onClick={() => navigate(`/${character.id}`)} onKeyDown={() => navigate(`/${character.id}`)} />
     </div>
   );
 }
@@ -21,3 +22,7 @@ Character.propTypes = {
 };
 
 export default Character;
+
+export const CharacterPoster = styled.img`
+  box-shadow: 0 0 35px black;
+`;
