@@ -21,12 +21,12 @@ function CharacterDetail() {
 
   useEffect(() => {
     fetchCharacterDetails();
-  }, [fetchCharacterDetails, id]);
+  }, [fetchCharacterDetails]);
 
   return (
-    <CharacterWrapper backdrop={`${CHARACTER_IMG_URL}${character.id}.jpeg`}>
+    <CharacterWrapper backdrop="https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_star-forming_region_carina_nircam_final-5mb.jpg">
       <CharacterInfo>
-        <CharacterPoster src={`${CHARACTER_IMG_URL}${character.id}.jpeg`} alt={`${character.name}`} />
+        <CharacterPoster src={`${CHARACTER_IMG_URL}${character?.id}.jpeg`} alt={`${character.name}`} />
         <div>
           <h3>{character.name}</h3>
           <p>
@@ -62,7 +62,8 @@ const CharacterWrapper = styled.div`
   position: relative;
   padding-top: 50vh;
   background: url(${(props) => props.backdrop}) no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
+  // background-position: center center;
 `;
 
 const CharacterInfo = styled.div`
