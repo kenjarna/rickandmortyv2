@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <header>
-          <Link to="/">
+          <Link to="/rickandmortyv2">
             <h3>
               {'<'}
               Rick and Morty Baby
@@ -21,8 +21,8 @@ function App() {
         </header>
         <div className="content">
           <Routes>
-            <Route exact path="/" element={<CharacterList />} />
-            <Route path="/:id" element={<CharacterDetail />} />
+            <Route exact path="/rickandmortyv2" element={<CharacterList />} />
+            <Route path="/rickandmortyv2/:id" element={<CharacterDetail />} />
           </Routes>
         </div>
         <footer>

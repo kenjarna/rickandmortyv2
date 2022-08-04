@@ -8,7 +8,7 @@ function Character({ character }) {
   const navigate = useNavigate();
   return (
     <div>
-      <CharacterPoster src={character.image} alt={character.name} onClick={() => navigate(`/${character.id}`)} onKeyDown={() => navigate(`/${character.id}`)} />
+      <CharacterPoster src={character.image} alt={character.name} onClick={() => navigate(`/rickandmortyv2/${character.id}`)} onKeyDown={() => navigate(`/${character.id}`)} />
     </div>
   );
 }
